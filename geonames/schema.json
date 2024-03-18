@@ -1,0 +1,109 @@
+{
+	"add-field-type": {
+		"name": "placeNameTextField",
+		"class": "solr.TextField",
+		"positionIncrementGap": "100",
+		"queryAnalyzer": {
+			"tokenizer": {
+				"class": "solr.StandardTokenizerFactory"
+			},
+			"filters": [
+				{
+					"class": "solr.LowerCaseFilterFactory"
+				},
+				{
+					"class": "solr.ASCIIFoldingFilterFactory",
+					"preserveOriginal": "true"
+				}
+			]
+		},
+		"tokenizer": {
+			"class": "solr.WhitespaceTokenizerFactory"
+		}
+	},
+	"add-field": [
+		{
+			"name": "name",
+			"type": "string",
+			"stored": true,
+			"indexed": true,
+			"docValues": true,
+			"required": true
+		},
+		{
+			"name": "alternatename",
+			"type": "string",
+			"stored": true,
+			"indexed": true,
+			"docValues": true,
+			"multiValued": true
+		},
+		{
+			"name": "coordinate",
+			"type": "location",
+			"stored": true,
+			"indexed": true,
+			"docValues": true,
+			"required": true
+		},
+		{
+			"name": "featureclass",
+			"type": "string",
+			"stored": true,
+			"docValues": true,
+			"indexed": true
+		},
+		{
+			"name": "featurecode",
+			"type": "string",
+			"stored": true,
+			"docValues": true,
+			"indexed": true
+		},
+		{
+			"name": "country",
+			"type": "string",
+			"stored": true,
+			"docValues": true,
+			"indexed": true
+		},
+		{
+			"name": "population",
+			"type": "pint",
+			"stored": true,
+			"indexed": true,
+			"docValues": true
+		},
+		{
+			"name": "elevation",
+			"type": "pint",
+			"stored": true,
+			"indexed": true,
+			"docValues": true
+		},
+		{
+			"name": "timezone",
+			"type": "string",
+			"stored": true,
+			"docValues": true,
+			"indexed": true
+		},
+		{
+			"name": "n",
+			"type": "placeNameTextField",
+			"stored": true,
+			"indexed": true,
+			"multiValued": true
+		}
+	],
+	"add-copy-field": [
+		{
+			"source": "name",
+			"dest": "n"
+		},
+		{
+			"source": "alternatename",
+			"dest": "n"
+		}
+	]
+}

@@ -1,0 +1,29 @@
+version: 2
+updates:
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    groups:
+      github-actions:
+        patterns:
+        - '*'
+  - package-ecosystem: "docker"
+    directory: "/geonames/"
+    schedule:
+      interval: "daily"
+    ignore:
+      - dependency-name: "alpine"
+    groups:
+      docker:
+        patterns:
+        - '*'
+  - package-ecosystem: "docker"
+    directory: "/gnd/"
+    schedule:
+      interval: "daily"
+    groups:
+      docker:
+        patterns:
+        - '*'
