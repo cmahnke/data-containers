@@ -1,6 +1,7 @@
 gnd/*.jsonld
 gnd/*.mrc.xml
 gnd/*.hdt
+gnd/*.cache
 gnd/*.nt.gz
 gnd/*.nt
 gnd/*.gz
