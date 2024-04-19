@@ -30,7 +30,7 @@ RUN --mount=target=/mnt/build-context \
     curl http://0.0.0.0:8983/api/cores/geonames/schema -X POST -H 'Content-type:application/json' --data-binary @$JSON_SCHEMA && \
 # Import of 'allCountries.json'
     echo "Importing data from $(basename $GEONAMES_ALL_COUNTRIES .zip).json" && \
-    curl -X POST -H 'Content-type:application/json' -T$(basename $GEONAMES_ALL_COUNTRIES .zip).json 'http://0.0.0.0:8983/solr/geonames/update/json/docs?split=/&f=id:/id&f=name:/name&f=alternatename:/alternatename&f=coordinate:/coordinate&f=featureclass:/featureclass&f=featurecode:/featurecode&f=country:/country&f=population:/population&f=elevation:/elevation&f=timezone:/timezone&commit=true&optimize=true' && \
+    curl -X POST -H 'Content-type:application/json' -T$(basename $GEONAMES_ALL_COUNTRIES .zip).json 'http://0.0.0.0:8983/solr/geonames/update/json/docs?split=/&f=id:/id&f=name:/name&f=uri:/uri&f=alternatename:/alternatename&f=coordinate:/coordinate&f=featureclass:/featureclass&f=featurecode:/featurecode&f=country:/country&f=population:/population&f=elevation:/elevation&f=timezone:/timezone&commit=true&optimize=true' && \
 # Set permissons
     chown -R $SOLR_USER /var/solr && \
 ## Cleanup

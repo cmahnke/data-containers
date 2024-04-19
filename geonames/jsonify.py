@@ -15,7 +15,7 @@ def parse_boolean(str):
     return False
 
 def uri(id):
-    return (f"https://sws.geonames.org/{id}/", f"https://sws.geonames.org/{id}/")
+    return (f"http://sws.geonames.org/{id}/", f"https://sws.geonames.org/{id}/")
 
 def convert_geoname_line(data, output):
     names = data[3].split(',')
@@ -24,6 +24,8 @@ def convert_geoname_line(data, output):
         elevation = 0
     else:
         elevation = data[15]
+    if data[0] == '':
+        sys.exit(1)
     obj = {'id': int(data[0]),
             'uri': uri(data[0]),
             'name': data[1],
@@ -43,9 +45,12 @@ def convert_alternative_line(data, output):
         to = ''
     else:
         to = data[9]
+    if data[1] == '':
+        sys.exit(2)
     doc = { 'id': data[1] + '-' + data[0],
             'alternativeid': int(data[0]),
             'geonameid': int(data[1]),
+            'uri': uri(data[1]),
             'isolanguage': data[2],
             'alternate name': data[3],
             'isPreferredName': parse_boolean(data[4]),

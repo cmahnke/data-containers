@@ -5,3 +5,5 @@ gnd/*.cache
 gnd/*.nt.gz
 gnd/*.nt
 gnd/*.gz
+geonames/*.txt
+geonames/*.zip
