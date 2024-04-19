@@ -24,7 +24,7 @@
 	"add-field": [
 		{
 			"name": "name",
-			"type": "string",
+			"type": "text",
 			"stored": true,
 			"indexed": true,
 			"docValues": true,
@@ -41,7 +41,7 @@
 		},
 		{
 			"name": "alternatename",
-			"type": "string",
+			"type": "text",
 			"stored": true,
 			"indexed": true,
 			"docValues": true,
@@ -71,7 +71,7 @@
 		},
 		{
 			"name": "country",
-			"type": "string",
+			"type": "text",
 			"stored": true,
 			"docValues": true,
 			"indexed": true
