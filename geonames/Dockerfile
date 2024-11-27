@@ -1,4 +1,4 @@
-FROM solr:9.6-slim
+FROM solr:9.7-slim
 
 LABEL maintainer="cmahnke@gmail.com"
 LABEL org.opencontainers.image.source=https://github.com/cmahnke/data-containers
