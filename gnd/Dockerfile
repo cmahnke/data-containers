@@ -1,4 +1,4 @@
-FROM eclipse-temurin:21-jre-alpine AS builder
+FROM eclipse-temurin:25-jre-alpine AS builder
 
 LABEL maintainer="cmahnke@gmail.com"
 LABEL org.opencontainers.image.source=https://github.com/cmahnke/data-containers
@@ -34,7 +34,7 @@ RUN --mount=target=/mnt/build-context \
     cp hdt-java-package-*/lib/hdt-*.jar $FUSEKI_HOME/run/extra && \
     rm $FUSEKI_HOME/run/extra/hdt-java-cli-*.jar
 
-FROM alpine:3.19
+FROM alpine:3.23
 
 ENV GND_URL=https://data.dnb.de/opendata/authorities-gnd_lds.hdt.gz \
     JENA_HOME=/opt/jena \
